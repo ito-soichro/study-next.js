@@ -1,0 +1,8 @@
+{
+    "message": "This is sample JSON data",
+    "data": [
+        {"name":"taro","mail":"taro@yamada", "age":39},
+        {"name":"hankow","mail":"hankow@flower", "age":28},
+        {"name":"saclike","mail":"saclike@happy", "age":17}
+    ]
+}
