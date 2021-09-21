@@ -2,6 +2,7 @@ import Layout from "../components/layout";
 import Calc from "../components/Calc";
 
 export default function Home(){
+
     return(
         <div>
             <Layout header="Calc" title="Calculator">

@@ -5,6 +5,7 @@ export default function Home() {
     const url = './data.json'
     const [data,setData] = useState({message:'', data:[]})
 
+    //無限ループってこれかな？？
     fetch(url).then()
       .then(res=> res.json())
       .then(res=> setData(res))

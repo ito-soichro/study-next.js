@@ -6,6 +6,7 @@ export default function Calc(props){
     const [input, setInput] = useState('')
     const [data,setData] = usePersist('calc-history', [])
     const [func, setFunc] = useState({func:{}})
+    console.log(func)
 
     const fetchFunc = (address) => 
         fetch(address).then(res => res.json())
@@ -13,10 +14,13 @@ export default function Calc(props){
         useEffect(() => {
             fetchFunc('/api/func').then((r)=>{
                 setFunc(r)
+                // 解消
+                console.log("確認",r)
             })
         },[data])
+
         const onChange = (e) => {
-            setInput(e.targe.value)
+            setInput(e.target.value)
         }
         const onKeyPress = (e) => {
             if(e.key == 'Enter'){
@@ -58,11 +62,12 @@ export default function Calc(props){
                     <div className="form-group">
                         <input type="text" value={input} className="form-control" onChange={onChange} onKeyPress={onKeyPress}/>
                     </div>
-                    {Object.entries(func.func).map((value,key)=>{
+                    {/* ここに間違いがあった */}
+                    {Object.entries(func.func).map((value,key)=> (
                         <button className="btn btn-secondary m-1" key={key} title={value[1].caption} id={value[0]} onClick={doFunc}>
                             {value[0]}
                         </button>
-                    })}
+                    ))}
                 </div>
                 <table className="table">
                     <thead><tr><th>history:</th></tr></thead>
